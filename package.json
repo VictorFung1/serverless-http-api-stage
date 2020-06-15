@@ -1,6 +1,6 @@
 {
   "name": "vf-serverless-http-api-stage",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "serverless-http-api-stage.js",
   "keywords": [],
