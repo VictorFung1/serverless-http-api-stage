@@ -2,10 +2,7 @@
   "name": "vf-serverless-http-api-stage",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
-  "files": [
-    "index.js"
-  ],
+  "main": "serverless-http-api-stage.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
