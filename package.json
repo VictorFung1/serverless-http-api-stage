@@ -1,12 +1,19 @@
 {
-  "name": "serverless-http-api-stage",
+  "name": "vf-serverless-http-api-stage",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VictorFung1/serverless-http-api-stage.git"
   }
 }
