@@ -5,33 +5,28 @@ class ServerlessPlugin {
     this.serverless = serverless;
     this.options = options;
 
-    this.hooks = { 'after:package:packageService': () => bPromise.bind(this).then(this.afterPackageResources) };
+    this.hooks = {
+      'before:package:finalize': () => bPromise.bind(this).then(this.setLambdaApigatewayStage)
+    };
   }
 
-  options() {
-    const stage = this.opts.stage || this.serverless.service.provider.stage;
+  setLambdaApigatewayStage() {
+    const stage = this.options.stage || this.serverless.service.provider.stage;
+    const region = this.options.region || this.serverless.service.provider.httpApi.region;
+    const accountId = this.options.accountId || this.serverless.service.provider.httpApi.accountId;
     const template = this.serverless.service.provider.compiledCloudFormationTemplate;
-    return { stage, template };
-  }
-
-  afterPackageResources() {
-    const { stage, template } = this.options();
 
     Object.keys(template.Resources).forEach((key) => {
       const type = template.Resources[key].Type;
       if (type === 'AWS::ApiGatewayV2::Stage') {
-        template.Resources[key].Properties = {
-          ...template.Resources[key].Properties,
-          ...{ StageName: stage || '$default' }
-        };
+        template.Resources[key].Properties.StageName = stage || '$default';
       }
 
       if (type === 'AWS::ApiGatewayV2::Integration') {
-        const func = template.Resources[key].IntegrationUri['Fn::GetAtt'][0];
+        const func = template.Resources[key].Properties.IntegrationUri['Fn::GetAtt'][0];
         const { Properties } = template.Resources[func];
-        const { FunctionName, Environment } = Properties;
-        const { REGION, ACCOUNT_ID } = Environment;
-        template.Resources[key].Properties.IntegrationUri = `arn:aws:lambda:${REGION}:${ACCOUNT_ID}:function:${FunctionName}:${stage}`;
+        const { FunctionName } = Properties;
+        template.Resources[key].Properties.IntegrationUri = `arn:aws:lambda:${region}:${accountId}:function:${FunctionName}:${stage}`;
       }
     });
   }
