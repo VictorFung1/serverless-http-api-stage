@@ -5,15 +5,13 @@ class ServerlessPlugin {
     this.serverless = serverless;
     this.options = options;
 
-    this.hooks = {
-      'before:package:finalize': () => bPromise.bind(this).then(this.setLambdaApigatewayStage)
-    };
+    this.hooks = { 'before:package:finalize': () => bPromise.bind(this).then(this.setLambdaApigatewayStage) };
   }
 
   setLambdaApigatewayStage() {
     const stage = this.options.stage || this.serverless.service.provider.stage;
-    const region = this.options.region || this.serverless.service.provider.httpApi.region;
-    const accountId = this.options.accountId || this.serverless.service.provider.httpApi.accountId;
+    const region = this.options.region || this.serverless.service.custom.httpApi.region;
+    const accountId = this.options.accountId || this.serverless.service.custom.httpApi.accountId;
     const template = this.serverless.service.provider.compiledCloudFormationTemplate;
 
     Object.keys(template.Resources).forEach((key) => {

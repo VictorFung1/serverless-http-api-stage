@@ -1,5 +1,5 @@
 {
-  "name": "vf-serverless-http-api-stage",
+  "name": "@victorfung1/serverless-http-api-stage",
   "version": "0.0.2",
   "description": "",
   "main": "serverless-http-api-stage.js",
