@@ -1,5 +1,6 @@
 # serverless-http-api-stage
 Add stage variables ApiGateway V2 for HTTP APIs.
+Note: This is meant to work together with serverless-plugin-canary-deployments
 
 # Installation
 ```
