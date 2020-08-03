@@ -1,5 +1,5 @@
 {
-  "name": "serverless-http-api-stage",
+  "name": "serverless-apigv2-http-api-stage",
   "version": "0.0.5",
   "description": "",
   "main": "serverless-http-api-stage.js",
