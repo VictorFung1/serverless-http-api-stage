@@ -1,6 +1,6 @@
 {
   "name": "serverless-apigv2-http-api-stage",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "serverless-http-api-stage.js",
   "keywords": [],
@@ -13,5 +13,7 @@
     "type": "git",
     "url": "https://github.com/VictorFung1/serverless-http-api-stage.git"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
