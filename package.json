@@ -12,5 +12,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/VictorFung1/serverless-http-api-stage.git"
-  }
+  },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
 }
