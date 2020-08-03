@@ -1,6 +1,6 @@
 {
-  "name": "serverless-apigv2-http-api-stage",
-  "version": "0.0.5",
+  "name": "@victorfung1/serverless-apigv2-http-api-stage",
+  "version": "0.0.6",
   "description": "",
   "main": "serverless-http-api-stage.js",
   "keywords": [],
