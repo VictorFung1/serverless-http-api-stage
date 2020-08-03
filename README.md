@@ -5,7 +5,7 @@ Note: This is meant to work together with serverless-plugin-canary-deployments
 # Installation
 ```
 npm install serverless-plugin-canary-deployments --save-dev
-npm install @victorfung1/serverless-apigv2-http-api-stage --save-dev
+npm install serverless-apigv2-http-api-stage --save-dev
 ```
 
 # Usage
@@ -18,5 +18,5 @@ custom:
 
 plugins:
   - serverless-plugin-canary-deployments
-  - "@victorfung1/serverless-apigv2-http-api-stage"
+  - serverless-apigv2-http-api-stage
 ```
